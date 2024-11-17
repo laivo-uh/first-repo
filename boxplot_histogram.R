@@ -19,6 +19,7 @@ boxplot(
 )
 
 attach(filtered_data)
+
 hist(
   thalach,
   breaks = 10,
