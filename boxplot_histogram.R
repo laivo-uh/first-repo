@@ -38,3 +38,16 @@ curve(
   )
 
 detach(filtered_data)
+
+shapiro.test(filtered_data$thalach[filtered_data$sex == 0])
+shapiro.test(filtered_data$thalach[filtered_data$sex == 1])
+
+install.packages("car")
+install.packages("car", repos = "https://cran.rstudio.com/")
+library(car)
+str(filtered_data)
+filtered_data$sex <- as.factor(filtered_data$sex)
+leveneTest(thalach ~ sex, data = filtered_data)
+
+t_test_result <- t.test(thalach ~ sex, data = filtered_data, var.equal = TRUE)
+print(t_test_result)
