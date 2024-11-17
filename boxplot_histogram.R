@@ -1,6 +1,6 @@
 library(readxl)
 
-heart_data <- read_excel("D:/team-research-project/heart.xls")
+heart_data <- read_excel("heart.xls")
 head(heart_data)
 
 list.files("D:/team-research-project/heart.xls")
