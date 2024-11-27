@@ -3,8 +3,6 @@ library(readxl)
 heart_data <- read_excel("heart.xls")
 head(heart_data)
 
-list.files("D:/team-research-project/heart.xls")
-
 filtered_data <- subset(heart_data, exang == 1)
 head(filtered_data)
 
