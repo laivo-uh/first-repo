@@ -21,19 +21,19 @@ attach(filtered_data)
 hist(
   thalach,
   breaks = 10,
-  probability = TRUE,
+  probability = FALSE, # Hiển thị frequency
   main = "Histogram of Maximum Heart Rate with Normal Curve",
   xlab = "Maximum Heart Rate (thalach)",
   col = "cornsilk2",
   border = "cornsilk4"
-  )
+)
 
 curve(
-  dnorm(x, mean = mean(thalach), sd = sd(thalach)),
+  dnorm(x, mean = mean(thalach), sd = sd(thalach)) * length(thalach) * diff(hist(thalach, breaks = 10, plot = FALSE)$breaks)[1],
   col = "darkgrey",
   lwd = 2,
   add = TRUE
-  )
+)
 
 detach(filtered_data)
 

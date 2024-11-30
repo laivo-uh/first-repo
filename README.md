@@ -41,10 +41,14 @@
 - Higher heart rates in males could potentially be attributed to testosterone levels.
 - Lower heart rates in females may indicate the protective effects of estrogen on the cardiovascular system.
 
-## Next Steps
-- Perform statistical analysis to test the hypotheses.
-- Document results, including p-values and their interpretations.
+### Visualization
+- **Boxplot:** According to this boxplot, the median maximum heart rate (thalach) for females appears slightly higher than for males and both genders show similar variability in heart rate.
+![image](https://github.com/user-attachments/assets/bc67303d-a160-4e09-9dc8-dcb515937256)
 
+- **Histogram:** In the histogram, the maximum heart rates in the dataset are generally distributed normally. Most individuals achieve heart rates in the range of 130–150 bpm.
+ ![image](https://github.com/user-attachments/assets/a9e51600-1215-4840-9ccd-90944b9f310e)
+
+- **p-value=** `0.01832` : we reject the null hypothesis (𝐻0). This indicates there is strong evidence that the mean maximum heart rates (thalach) are different between males and females. Moreover, the 95% confidence interval suggests that the difference in means is between 2.07 and 21.82, with females (group 0) having a higher mean heart rate 146.5) compared to males (134.56).
 
 ## Contributors
 - **Presenting Student:** Leslie Fernandes
