@@ -32,6 +32,19 @@
 - **Description:** Maximum heart rate achieved during exercise.
 - **Datatype:** Interval
 
+## Hypotheses
+
+1. **Null Hypothesis (H₀):** There is no difference in the mean of the maximum heart rate between males and females who experience exercise-induced angina.
+2. **Alternative Hypothesis (H₁):** There is a difference in the mean of the maximum heart rate between males and females who experience exercise-induced angina.
+
+### Assumptions and Considerations
+- Higher heart rates in males could potentially be attributed to testosterone levels.
+- Lower heart rates in females may indicate the protective effects of estrogen on the cardiovascular system.
+
+## Next Steps
+- Perform statistical analysis to test the hypotheses.
+- Document results, including p-values and their interpretations.
+
 
 ## Contributors
 - **Presenting Student:** Leslie Fernandes
