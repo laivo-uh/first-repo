@@ -50,8 +50,22 @@
 
 - **p-value=** `0.01832` : we reject the null hypothesis (𝐻0). This indicates there is strong evidence that the mean maximum heart rates (thalach) are different between males and females. Moreover, the 95% confidence interval suggests that the difference in means is between 2.07 and 21.82, with females (group 0) having a higher mean heart rate 146.5) compared to males (134.56).
 
-## Contributors
-- **Presenting Student:** Leslie Fernandes
-- **Group Members:** Khurram, Lai, Ayesha, Lipi
+## Result
+
+1. **Levene’s Test for Homogeneity of Variance:**
+- p-value =  **0.08909** (> 0.05): The test indicates that the variances between the two groups (males and females) are not significantly different.
+- Conclusion: The assumption of equal variances is valid, and the standard t-test can be used.
+ 
+2. **Standard t-Test:**
+- p-value = **0.01832** (< 0.05): Indicates a statistically significant difference in mean maximum heart rate between males and females.
+- **Mean Maximum Heart Rates:**
+  - Females (sex = 0): Mean = **134.6**.
+  - Males (sex = 1): Mean = **146.5**.
+- Conclusion: The difference in means is statistically significant under the equal variances assumption.
+
+## Final Interpretation:
+
+Levene’s test confirms equal variances, allowing the use of the standard t-test. The t-test results (p = **0.01832**) indicate a significant difference in maximum heart rate between males and females who experience exercise-induced angina. Males have a higher mean maximum heart rate compared to females, supporting the hypothesis that gender-based physiological differences influence heart rate during stress.
+
 
 ---
