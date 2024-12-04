@@ -42,7 +42,7 @@
 - Lower heart rates in females may indicate the protective effects of estrogen on the cardiovascular system.
 
 ### Visualization
-- **Boxplot:** According to this boxplot, the median maximum heart rate (thalach) for females appears slightly higher than for males and both genders show similar variability in heart rate.
+- **Boxplot:** According to this boxplot, the mean maximum heart rate (thalach) for males appears slightly higher than for females and both genders show similar variability in heart rate. The IQR for females is larger, suggesting that their maximum heart rates vary more in the middle range.
 ![image](https://github.com/user-attachments/assets/bc67303d-a160-4e09-9dc8-dcb515937256)
 
 - **Histogram:** In the histogram, the maximum heart rates in the dataset are generally distributed normally. Most individuals achieve heart rates in the range of 130–150 bpm.
