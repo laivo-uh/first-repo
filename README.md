@@ -63,6 +63,7 @@
   - Males (sex = 1): Mean = **146.5**.
 - Conclusion: The difference in means is statistically significant under the equal variances assumption. The 95% confidence interval (2.07 to 21.82) suggests that males have, on average, a higher maximum heart rate compared to females. These findings underscore gender-based physiological differences that could influence cardiovascular health assessments and interventions.
 
+
 ## Final Interpretation:
 
 Levene’s test confirms equal variances, allowing the use of the standard t-test. The t-test results (p = **0.01832**) indicate a significant difference in maximum heart rate between males and females who experience exercise-induced angina. Males have a higher mean maximum heart rate compared to females, supporting the hypothesis that gender-based physiological differences influence heart rate during stress.
