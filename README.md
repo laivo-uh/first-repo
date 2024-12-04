@@ -61,7 +61,7 @@
 - **Mean Maximum Heart Rates:**
   - Females (sex = 0): Mean = **134.6**.
   - Males (sex = 1): Mean = **146.5**.
-- Conclusion: The difference in means is statistically significant under the equal variances assumption.
+- Conclusion: The difference in means is statistically significant under the equal variances assumption. The 95% confidence interval (2.07 to 21.82) suggests that males have, on average, a higher maximum heart rate compared to females. These findings underscore gender-based physiological differences that could influence cardiovascular health assessments and interventions.
 
 ## Final Interpretation:
 
