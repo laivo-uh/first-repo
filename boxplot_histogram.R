@@ -6,6 +6,22 @@ head(heart_data)
 filtered_data <- subset(heart_data, exang == 1)
 head(filtered_data)
 
+#Cleaning of Dataset
+
+#Shows the number of missing values in each column
+colSums(is.na(heart_data)) 
+
+#removing missing values
+heart_data <- na.omit(heart_data)
+
+#Filling missing values with a default or mean
+heart_data$thalach[is.na(heart_data$thalach)] <- mean(heart_data$thalach, na.rm = TRUE)
+
+#Checking for duplicates
+duplicates <- duplicated(heart_data)
+
+print(duplicates)
+
 boxplot(
   thalach ~ sex,
   data = filtered_data,
@@ -51,19 +67,5 @@ t_test_result <- t.test(thalach ~ sex, data = filtered_data, var.equal = TRUE)
 print(t_test_result)
 
 
-#Cleaning of Dataset
 
-#Shows the number of missing values in each column
-colSums(is.na(heart_data)) 
-
-#removing missing values
-heart_data <- na.omit(heart_data)
-
-#Filling missing values with a default or mean/median
-heart_data$thalach[is.na(heart_data$thalach)] <- mean(heart_data$thalach, na.rm = TRUE)
-
-#Checking for duplicates
-duplicates <- duplicated(heart_data)
-
-print(duplicates)
 
