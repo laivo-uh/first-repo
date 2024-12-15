@@ -6,6 +6,30 @@ head(heart_data)
 filtered_data <- subset(heart_data, exang == 1)
 head(filtered_data)
 
+#Cleaning of Dataset
+
+#Shows the number of missing values in each column
+colSums(is.na(filtered_data)) 
+
+#removing missing values
+heart_data <- na.omit(filtered_data)
+
+#Filling missing values with a default or mean
+heart_data$thalach[is.na(heart_data$thalach)] <- mean(heart_data$thalach, na.rm = TRUE)
+
+#Checking for duplicates
+duplicates <- duplicated(heart_data)
+
+print(duplicates)
+
+str(heart_data)  # Checking the structure of the dataset
+
+heart_data$age <- as.numeric(heart_data$age)  # Ensuring numeric type
+
+#Saving the Cleaned dataset
+write.csv(heart_data, "cleaned_heart_data.csv", row.names = FALSE)
+
+
 boxplot(
   thalach ~ sex,
   data = filtered_data,
@@ -21,19 +45,19 @@ attach(filtered_data)
 hist(
   thalach,
   breaks = 10,
-  probability = TRUE,
+  probability = FALSE, # Hiển thị frequency
   main = "Histogram of Maximum Heart Rate with Normal Curve",
   xlab = "Maximum Heart Rate (thalach)",
   col = "cornsilk2",
   border = "cornsilk4"
-  )
+)
 
 curve(
-  dnorm(x, mean = mean(thalach), sd = sd(thalach)),
+  dnorm(x, mean = mean(thalach), sd = sd(thalach)) * length(thalach) * diff(hist(thalach, breaks = 10, plot = FALSE)$breaks)[1],
   col = "darkgrey",
   lwd = 2,
   add = TRUE
-  )
+)
 
 detach(filtered_data)
 
@@ -49,3 +73,7 @@ leveneTest(thalach ~ sex, data = filtered_data)
 
 t_test_result <- t.test(thalach ~ sex, data = filtered_data, var.equal = TRUE)
 print(t_test_result)
+
+
+
+
