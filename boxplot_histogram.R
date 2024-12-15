@@ -37,7 +37,7 @@ boxplot(
   xlab = "Gender (1 = Male, 0 = Female)",
   ylab = "Maximum Heart Rate (thalach)",
   col = c("lightblue", "pink"),
-  names = c("Male", "Female")
+  names = c("Female", "Male")
 )
 
 attach(filtered_data)
