@@ -36,7 +36,7 @@ boxplot(
   main = "Boxplot of Maximum Heart Rate by Gender",
   xlab = "Gender (1 = Male, 0 = Female)",
   ylab = "Maximum Heart Rate (thalach)",
-  col = c("lightblue", "pink"),
+  col = c("pink", "lightblue"),
   names = c("Female", "Male")
 )
 
