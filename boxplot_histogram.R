@@ -3,16 +3,13 @@ library(readxl)
 heart_data <- read_excel("heart.xls")
 head(heart_data)
 
-filtered_data <- subset(heart_data, exang == 1)
-head(filtered_data)
-
 #Cleaning of Dataset
 
 #Shows the number of missing values in each column
-colSums(is.na(filtered_data)) 
+colSums(is.na(heart_data)) 
 
 #removing missing values
-heart_data <- na.omit(filtered_data)
+heart_data <- na.omit(heart_data)
 
 #Filling missing values with a default or mean
 heart_data$thalach[is.na(heart_data$thalach)] <- mean(heart_data$thalach, na.rm = TRUE)
@@ -29,6 +26,8 @@ heart_data$age <- as.numeric(heart_data$age)  # Ensuring numeric type
 #Saving the Cleaned dataset
 write.csv(heart_data, "cleaned_heart_data.csv", row.names = FALSE)
 
+filtered_data <- subset(heart_data, exang == 1)
+head(filtered_data)
 
 boxplot(
   thalach ~ sex,
