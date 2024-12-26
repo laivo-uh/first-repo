@@ -1,7 +1,11 @@
+install.packages("car")
+install.packages("car", repos = "https://cran.rstudio.com/")
 library(readxl)
+library(car)
+
+options(repos = c(CRAN = "https://cran.rstudio.com"))
 
 heart_data <- read_excel("heart.xls")
-head(heart_data)
 
 #Cleaning of Dataset
 
@@ -16,19 +20,21 @@ heart_data$thalach[is.na(heart_data$thalach)] <- mean(heart_data$thalach, na.rm 
 
 #Checking for duplicates
 duplicates <- duplicated(heart_data)
-
 print(duplicates)
 
-str(heart_data)  # Checking the structure of the dataset
+# Checking the structure of the dataset
+str(heart_data)  
 
-heart_data$age <- as.numeric(heart_data$age)  # Ensuring numeric type
+# Ensuring numeric type
+heart_data$age <- as.numeric(heart_data$age)  
 
-#Saving the Cleaned dataset
+#Saving the Cleaned data set
 write.csv(heart_data, "cleaned_heart_data.csv", row.names = FALSE)
 
+# Filter data for exercise-induced angina
 filtered_data <- subset(heart_data, exang == 1)
-head(filtered_data)
 
+# Box plot for Maximum Heart Rate by Gender
 boxplot(
   thalach ~ sex,
   data = filtered_data,
@@ -41,6 +47,7 @@ boxplot(
 
 attach(filtered_data)
 
+# Histogram with Normal Curve for Maximum Heart Rate
 hist(
   thalach,
   breaks = 10,
@@ -60,19 +67,42 @@ curve(
 
 detach(filtered_data)
 
-shapiro.test(filtered_data$thalach[filtered_data$sex == 0])
-shapiro.test(filtered_data$thalach[filtered_data$sex == 1])
+# Shapiro-Wilk test for normality (female) 
+shapiro_test_females <- shapiro.test(filtered_data$thalach[filtered_data$sex == 0])
 
-install.packages("car")
-install.packages("car", repos = "https://cran.rstudio.com/")
-library(car)
+# Shapiro-Wilk test for normality (male)
+shapiro_test_males <- shapiro.test(filtered_data$thalach[filtered_data$sex == 1])
+
+# Print results of Shapiro-Wilk test and Log the results
+sink("Rscript.log", append=TRUE)
+
+# Result: p < 0.05 (indicating non-normal distribution)
+# Result: p > 0.05 (indicating normal distribution)
+print(shapiro_test_females)
+print(shapiro_test_males)
+sink()
+
 str(filtered_data)
+
 filtered_data$sex <- as.factor(filtered_data$sex)
-leveneTest(thalach ~ sex, data = filtered_data)
 
+# Perform Levene's Test for equality of variances
+# Result: p < 0.05 (indicating significant difference in variances)
+levene_result <- leveneTest(thalach ~ sex, data = filtered_data)
+
+# Log the Levene's test result
+sink("Rscript.log", append=TRUE)
+print(levene_result)
+sink()
+
+# Perform t-test for difference in means between males and females
+# Result: p < 0.05 (indicating significant difference in means)
 t_test_result <- t.test(thalach ~ sex, data = filtered_data, var.equal = TRUE)
-print(t_test_result)
 
+# Log the t-test result
+sink("Rscript.log", append=TRUE)
+print(t_test_result)
+sink()
 
 
 
