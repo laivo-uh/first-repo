@@ -28,3 +28,33 @@ sample estimates:
 mean in group 0 mean in group 1 
        146.5000        134.5584 
 
+
+	Shapiro-Wilk normality test
+
+data:  filtered_data$thalach[filtered_data$sex == 0]
+W = 0.97201, p-value = 0.7571
+
+
+	Shapiro-Wilk normality test
+
+data:  filtered_data$thalach[filtered_data$sex == 1]
+W = 0.98725, p-value = 0.6406
+
+Levene's Test for Homogeneity of Variance (center = median)
+      Df F value  Pr(>F)  
+group  1  2.9495 0.08909 .
+      97                  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+	Two Sample t-test
+
+data:  thalach by sex
+t = 2.3997, df = 97, p-value = 0.01832
+alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0
+95 percent confidence interval:
+  2.065163 21.817954
+sample estimates:
+mean in group 0 mean in group 1 
+       146.5000        134.5584 
+
